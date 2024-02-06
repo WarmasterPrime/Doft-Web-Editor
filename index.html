@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Web Editor</title>
+		<link rel="assets/css/main.css" defer/>
+		<script src="assets/js/main.js" defer></script>
+	</head>
+	<body>
+		<div id="main-container" class="container">
+			<!-- The top-bar options menu strip -->
+			<div class="container menu-strip top">
+				<div class="dropdown" data-label="File" data-contents="['New','Open','Open in explorer','Rename','Save','Delete','Move','Exit']"></div>
+				<div class="dropdown" data-label="Edit" data-contents="['Undo','Redo','Cut','Copy','Paste','Delete','Find','Find next','Find previous','Replace','Replace all','Go to','Select all']"></div>
+				<div class="dropdown" data-label="Format" data-contents="['Word-wrap','Format document','Format selection']"></div>
+				<div class="dropdown" data-label="View" data-contents="{'Zoom':['Zoom','Zoom in','Zoom out','Reset zoom'],'Font':['Font','Font size'],'Panels':['Panels']}"></div>
+				<div class="dropdown" data-label="Tools" data-contents="{'Auto Completion':['Hints settings','Completion settings'],'Generate','Template':['Create new template','Manage templates'],'Settings'}"></div>
+				<div class="dropdown" data-label="Git" data-contents="['Account','Create repository','Open repository','Push','Pull','Commit','Stage','Sync','Merge','New branch','Change branch','Merge branches','Cherry-pick','Merge to master','Override pull','Branch id','Repository id']"></div>
+				<div class="dropdown" data-label="Extensions" data-contents="['Get','Manage']"></div>
+				<div class="dropdown" data-label="Connections" data-contents="['New','Available','Connected services']"></div>
+				<!--<div class="dropdown" data-label="" data-contents="[]"></div>-->
+			</div>
+			<!-- The tool-bar strip (Displays compiler, runtime, ext. options and configurations) -->
+			<div class="container menu-strip">
+				<button class="field button left" data-eventListener="onclick" data-eventAction="Editor.Previous()"></button>
+				<button class="field button right" data-eventListener="onclick" data-eventAction="Editor.Next()"></button>
+				<button class="field button save" data-eventListener="onclick" data-eventAction="Editor.Save()"></button>
+				<button class="field button save" data-eventListener="onclick" data-eventAction="Editor.SaveAll()"></button>
+				<button class="field button undo" data-eventListener="onclick" data-eventAction="Editor.Undo()"></button>
+				<button class="field button redo" data-eventListener="onclick" data-eventAction="Editor.Redo()"></button>
+				<div id="project-mode' class="dropdown" data-label="{Value}" data-contents="['Debug','Release']" data-defaultValue="Debug"></div>
+				<div id="project-run-with" class="dropdown" data-label="{Value}" data-contents="['Browser','Console','Other']" data-defaultValue="Browser"></div>
+			</div>
+			<!-- The file system navigation pane -->
+			<div id="file-system-navigation-container" class="navigation sidebar container">
+				<!-- The file system search input field -->
+				<div class="field container">
+					<input id="file-search" class="field input text search" type="text" placeholder="Search filesystem..." data-eventListener="onkeypress" data-eventAction="FileSystem.Search()" />
+					<button class="field button search" data-eventListener="onclick" data-eventAction="FileSystem.Search()"></button>
+				</div>
+				<!-- Contains the file system directory items under the directory -->
+				<div id="file-system-items" class="container list"></div>
+			</div>
+			
+		</div>
+	</body>
+</html>
